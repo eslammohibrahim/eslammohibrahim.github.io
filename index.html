@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eslam Mohamed Ibrahim</title>
+  <meta name="description" content="CS student in Giza, Egypt. Machine learning projects: Arabic NLP, computer vision, churn prediction.">
+  <meta property="og:title" content="Eslam Mohamed Ibrahim">
+  <meta property="og:description" content="Machine learning projects: Arabic NLP, computer vision, churn prediction.">
+  <meta property="og:image" content="https://eslammohibrahim.github.io/assets/rag.jpg">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="logo" href="#top">EI</a>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="https://github.com/eslammohibrahim">GitHub</a>
+      <a href="https://www.linkedin.com/in/eslam-mohamed-ibrahim/">LinkedIn</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <canvas id="boundary" aria-hidden="true"></canvas>
+      <div class="hero-text">
+        <p class="kicker reveal">Giza, Egypt · CS class of 2027</p>
+        <h1 class="reveal">Eslam Mohamed Ibrahim</h1>
+        <p class="lead reveal">Final-year CS student in Giza. I like machine learning, mostly Arabic NLP for now, and I tend to spend more time checking results than training models.</p>
+        <p class="arabic reveal" lang="ar" dir="rtl">بحب أفهم ليه الموديل غلط، مش بس نسبة الدقة</p>
+        <div class="cta reveal">
+          <a class="btn" href="#work">See the projects</a>
+          <a class="btn ghost" href="https://github.com/eslammohibrahim">GitHub</a>
+        </div>
+      </div>
+      <div class="hud" aria-hidden="true">
+        <span>logistic regression, trained live</span>
+        <span>step <b id="hud-step">0</b></span>
+        <span>accuracy <b id="hud-acc">0%</b></span>
+      </div>
+    </section>
+
+    <section id="work" class="work">
+      <h2 class="section-title">Projects</h2>
+
+      <article class="card" data-reveal>
+        <figure><img src="assets/rag.jpg" alt="Answer quality with and without retrieval" loading="lazy"></figure>
+        <div class="card-body">
+          <h3>Arabic RAG Assistant</h3>
+          <p>You ask something in Arabic, it digs through Wikipedia paragraphs, and a small model on my laptop writes the answer with sources. I thought the model would be the weak part. It wasn't, the search was, so that's where most of my time went.</p>
+          <div class="stats">
+            <div><b data-count="89" data-suffix="%">0</b><span>questions with the right paragraph in the top 3</span></div>
+            <div><b data-count="0.50" data-decimals="2" data-prefix="0.11 → ">0</b><span>answer F1, without vs with retrieval</span></div>
+          </div>
+          <ul class="tags"><li>RAG</li><li>BM25</li><li>embeddings</li><li>Ollama</li><li>FastAPI</li></ul>
+          <a class="link" href="https://github.com/eslammohibrahim/arabic-rag-assistant">Code and write-up</a>
+        </div>
+      </article>
+
+      <article class="card" data-reveal>
+        <figure class="dark"><img src="assets/churn.jpg" alt="The churn dashboard listing customers to contact" loading="lazy"></figure>
+        <div class="card-body">
+          <h3>Telco Customer Churn</h3>
+          <p>Started as a normal churn model, but a probability on its own doesn't tell a company what to do. So I added a simple money calculation to decide who actually gets a discount offer. With my assumptions it made $57k on the test customers, against $37k with the usual 0.5 cutoff.</p>
+          <div class="stats">
+            <div><b data-count="57" data-prefix="$" data-suffix="k">0</b><span>profit with value-based offers</span></div>
+            <div><b data-count="37" data-prefix="$" data-suffix="k">0</b><span>with the default 0.5 cutoff</span></div>
+          </div>
+          <ul class="tags"><li>scikit-learn</li><li>SHAP</li><li>calibration</li><li>Streamlit</li></ul>
+          <a class="link" href="https://github.com/eslammohibrahim/telco-churn">Code and write-up</a>
+        </div>
+      </article>
+
+      <article class="card" data-reveal>
+        <figure><img src="assets/satellite.jpg" alt="Satellite images with the model's predictions" loading="lazy"></figure>
+        <div class="card-body">
+          <h3>Satellite Land-Use Classifier</h3>
+          <p>ResNet18 fine-tuned on satellite photos, 98.1% on the test set. Then I added some noise to the images and it dropped to 15%, which was a bit embarrassing. Training with noise and blur fixed most of that. It runs as an API in Docker.</p>
+          <div class="stats">
+            <div><b data-count="98.1" data-decimals="1" data-suffix="%">0</b><span>test accuracy</span></div>
+            <div><b data-count="91.5" data-decimals="1" data-prefix="15% → " data-suffix="%">0</b><span>accuracy on noisy images, before vs after</span></div>
+          </div>
+          <ul class="tags"><li>PyTorch</li><li>transfer learning</li><li>FastAPI</li><li>Docker</li></ul>
+          <a class="link" href="https://github.com/eslammohibrahim/satellite-land-use-classifier">Code and write-up</a>
+        </div>
+      </article>
+
+      <article class="card" data-reveal>
+        <figure><img src="assets/sentiment.jpg" alt="Confusion matrix for the three sentiment classes" loading="lazy"></figure>
+        <div class="card-body">
+          <h3>Arabic Sentiment Analysis</h3>
+          <p>Labels Arabic reviews as positive, mixed or negative, trained on about 100k of them. Arabic spelling is messy (the same word can be written five ways), so I wrote my own cleanup step before trying five models. Mixed reviews are still hard, partly because the labels come from star ratings.</p>
+          <div class="stats">
+            <div><b data-count="69.2" data-decimals="1" data-suffix="%">0</b><span>accuracy on 20k test reviews, 3 classes</span></div>
+            <div><b data-count="36" data-suffix="%">0</b><span>fewer distinct words after normalization</span></div>
+          </div>
+          <ul class="tags"><li>NLP</li><li>Arabic</li><li>TF-IDF</li><li>linear SVM</li></ul>
+          <a class="link" href="https://github.com/eslammohibrahim/arabic-sentiment-analysis">Code and write-up</a>
+        </div>
+      </article>
+
+      <article class="card" data-reveal>
+        <figure><img src="assets/california.jpg" alt="California house prices by location" loading="lazy"></figure>
+        <div class="card-body">
+          <h3>California House Prices</h3>
+          <p>My first one. House prices from census data. What I remember most is finding almost a thousand blocks priced at exactly $500k, a cap in the data that would have fooled the model.</p>
+          <div class="stats">
+            <div><b data-count="0.818" data-decimals="3" data-prefix="R² ">0</b><span>gradient boosting on the test set</span></div>
+          </div>
+          <ul class="tags"><li>scikit-learn</li><li>regression</li></ul>
+          <a class="link" href="https://github.com/eslammohibrahim/california-housing">Code and write-up</a>
+        </div>
+      </article>
+    </section>
+
+    <section id="about" class="about" data-reveal>
+      <h2 class="section-title">About</h2>
+      <p>I'm finishing my CS degree at Culture and Science City in Giza and graduate in 2027. I write mostly Python. The part of a project I like best comes after the first result, when you go back to look for what's wrong with the data or why the model keeps making the same mistake.</p>
+      <p>Right now I'm looking for an internship or a junior role in ML or Python.</p>
+      <ul class="tools">
+        <li>Python</li><li>PyTorch</li><li>scikit-learn</li><li>pandas</li><li>Hugging Face</li><li>FastAPI</li><li>Streamlit</li><li>Docker</li><li>Git</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Find me on <a href="https://github.com/eslammohibrahim">GitHub</a> and <a href="https://www.linkedin.com/in/eslam-mohamed-ibrahim/">LinkedIn</a>.</p>
+    <p class="small">Plain HTML, CSS and JavaScript. The animation at the top is a logistic regression trained in your browser.</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
