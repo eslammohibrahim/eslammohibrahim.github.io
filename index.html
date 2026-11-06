@@ -94,12 +94,12 @@
         <figure><img src="assets/sentiment.jpg" alt="Confusion matrix for the three sentiment classes" loading="lazy"></figure>
         <div class="card-body">
           <h3>Arabic Sentiment Analysis</h3>
-          <p>Labels Arabic reviews as positive, mixed or negative, trained on about 100k of them. Arabic spelling is messy (the same word can be written five ways), so I wrote my own cleanup step before trying five models. Mixed reviews are still hard, partly because the labels come from star ratings.</p>
+          <p>Labels Arabic reviews as positive, mixed or negative, trained on about 100k of them. Arabic spelling is messy (the same word can be written five ways), so I wrote my own cleanup step before trying five classic models. Later I fine-tuned a small Arabic BERT, which did better, mostly on the mixed reviews, but took two hours to train instead of a minute.</p>
           <div class="stats">
-            <div><b data-count="69.2" data-decimals="1" data-suffix="%">0</b><span>accuracy on 20k test reviews, 3 classes</span></div>
-            <div><b data-count="36" data-suffix="%">0</b><span>fewer distinct words after normalization</span></div>
+            <div><b data-count="71.2" data-decimals="1" data-suffix="%">0</b><span>accuracy with a fine-tuned Arabic BERT, 20k test reviews</span></div>
+            <div><b data-count="69.2" data-decimals="1" data-suffix="%">0</b><span>with TF-IDF and a linear SVM</span></div>
           </div>
-          <ul class="tags"><li>NLP</li><li>Arabic</li><li>TF-IDF</li><li>linear SVM</li></ul>
+          <ul class="tags"><li>NLP</li><li>Arabic</li><li>BERT</li><li>TF-IDF</li><li>Hugging Face</li></ul>
           <a class="link" href="https://github.com/eslammohibrahim/arabic-sentiment-analysis">Code and write-up</a>
         </div>
       </article>
