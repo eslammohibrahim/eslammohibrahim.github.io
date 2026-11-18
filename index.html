@@ -105,6 +105,20 @@
       </article>
 
       <article class="card" data-reveal>
+        <figure><img src="assets/dialect.jpg" alt="Confusion matrix for the five dialects" loading="lazy"></figure>
+        <div class="card-body">
+          <h3>Arabic Dialect Identification</h3>
+          <p>Reads one Arabic sentence and guesses if the writer is Egyptian, Libyan, Lebanese, Sudanese or Moroccan, trained on about 147k tweets. Saying Egyptian every time already gets 39%, so I judged models by macro F1. Funny part: مصر itself is one of its top Egyptian words and two football clubs made the Moroccan list, so it learned topics too, not only dialect.</p>
+          <div class="stats">
+            <div><b data-count="86.5" data-decimals="1" data-suffix="%">0</b><span>test accuracy on 14,753 tweets</span></div>
+            <div><b data-count="0.836" data-decimals="3">0</b><span>macro F1, the always-Egyptian guess gets 0.11</span></div>
+          </div>
+          <ul class="tags"><li>NLP</li><li>Arabic</li><li>TF-IDF</li><li>linear SVM</li></ul>
+          <a class="link" href="https://github.com/eslammohibrahim/arabic-dialect-id">Code and write-up</a>
+        </div>
+      </article>
+
+      <article class="card" data-reveal>
         <figure><img src="assets/california.jpg" alt="California house prices by location" loading="lazy"></figure>
         <div class="card-body">
           <h3>California House Prices</h3>
